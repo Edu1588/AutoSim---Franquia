@@ -795,10 +795,19 @@ h2 em {
 
 .pillar-card--orange .pillar-card__top svg {
   color: var(--orange);
+  transition: color .25s var(--ease-out);
 }
 
 .pillar-card--blue .pillar-card__top svg {
   color: var(--navy);
+  transition: color .25s var(--ease-out);
+}
+
+.pillar-card:hover .pillar-card__top svg,
+.pillar-card.group:hover .pillar-card__top svg,
+.pillar-card--orange:hover .pillar-card__top svg,
+.pillar-card--blue:hover .pillar-card__top svg {
+  color: #ffffff !important;
 }
 
 .pillar-card__content h3 {

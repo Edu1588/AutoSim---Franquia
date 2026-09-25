@@ -190,13 +190,13 @@ function PillarTiltCard({
         <div className="pillar-card__top">
           <span className="pillar-card__number">{number}</span>
           <div
-            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${
+            className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors duration-200 ${
               accent === "orange"
-                ? "bg-orange-50 text-[#f26522] group-hover:bg-[#f26522] group-hover:text-white"
-                : "bg-slate-100 text-[#0a0e27] group-hover:bg-[#0a0e27] group-hover:text-white"
+                ? "bg-orange-50 text-[#f26522] group-hover:bg-[#f26522] group-hover:!text-white"
+                : "bg-slate-100 text-[#0a0e27] group-hover:bg-[#0a0e27] group-hover:!text-white"
             }`}
           >
-            <Icon size={18} strokeWidth={2} />
+            <Icon size={18} strokeWidth={2} className="transition-colors duration-200 group-hover:!text-white" />
           </div>
         </div>
         <div className="pillar-card__content">

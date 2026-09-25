@@ -460,16 +460,16 @@ export default function Home() {
                 <span><Check size={15} /> Modelo validado em expansão nacional</span>
               </div>
 
-              <div className="hero-actions w-full max-w-md mx-auto md:mx-0 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3">
+              <div className="hero-actions flex flex-wrap items-center justify-center md:justify-start gap-3.5 mt-8">
                 <a
-                  className="button button--primary w-full sm:w-auto justify-center text-center"
+                  className="button button--primary"
                   href="#qualificacao"
                   onClick={(e) => handleAnchorClick(e, "#qualificacao")}
                 >
                   Simular investimento <ArrowUpRightIcon />
                 </a>
                 <a
-                  className="button button--ghost w-full sm:w-auto justify-center text-center"
+                  className="button button--ghost"
                   href="#faq"
                   onClick={(e) => handleAnchorClick(e, "#faq")}
                 >
@@ -477,11 +477,11 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="hero-note w-full max-w-lg mx-auto md:mx-0 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2.5 sm:gap-3 text-center md:text-left">
-                <span className="inline-flex items-center justify-center text-center gap-1.5 text-xs text-slate-300">
+              <div className="hero-note flex flex-wrap items-center justify-center md:justify-start gap-3 mt-4">
+                <span className="inline-flex items-center gap-1.5 text-xs text-slate-300">
                   <ShieldCheck size={15} className="text-[#f26522] shrink-0" /> Candidaturas avaliadas por região e perfil
                 </span>
-                <span className="inline-flex items-center justify-center text-center gap-1.5 text-xs text-[#25D366] font-semibold bg-[#25D366]/10 px-2.5 py-1 rounded-full border border-[#25D366]/30">
+                <span className="inline-flex items-center gap-1.5 text-xs text-[#25D366] font-semibold bg-[#25D366]/10 px-2.5 py-1 rounded-full border border-[#25D366]/30">
                   <Clock size={13} className="shrink-0" /> Resposta garantida em até 15 minutos
                 </span>
               </div>

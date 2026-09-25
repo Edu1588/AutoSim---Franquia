@@ -1,0 +1,8 @@
+{
+  "name": "Autosim Franquia",
+  "description": "Uma franquia com 4 fontes de receita no maior mercado de compra e venda de veículos do Brasil.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

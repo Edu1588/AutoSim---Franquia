@@ -65,10 +65,10 @@ export default function InstitucionalVideoSection() {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full">
               <a
                 href="#qualificacao"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#f26522] hover:bg-[#d94f11] text-white font-semibold text-sm transition-all shadow-lg shadow-orange-500/25"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#f26522] hover:bg-[#d94f11] text-white font-semibold text-sm transition-all shadow-lg shadow-orange-500/25 w-full sm:w-auto text-center max-w-md"
               >
                 Simular investimento na rede <ArrowRight size={16} />
               </a>

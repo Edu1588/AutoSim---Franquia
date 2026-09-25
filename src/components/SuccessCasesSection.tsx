@@ -186,10 +186,10 @@ export default function SuccessCasesSection() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full md:w-auto shrink-0">
             <a
-              href="#contato"
-              className="inline-flex items-center justify-center gap-2 bg-[#f26522] hover:bg-[#ff7330] text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-orange-500/20"
+              href="#qualificacao"
+              className="inline-flex items-center justify-center gap-2 bg-[#f26522] hover:bg-[#ff7330] text-white px-6 py-3.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-orange-500/20 w-full sm:w-auto text-center"
             >
               <span>Garantir meu território</span>
               <ArrowRight size={16} />
@@ -198,7 +198,7 @@ export default function SuccessCasesSection() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-3.5 rounded-xl font-semibold text-sm transition-all border border-white/15"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-3.5 rounded-xl font-semibold text-sm transition-all border border-white/15 w-full sm:w-auto text-center"
             >
               <span>Falar no WhatsApp</span>
             </a>

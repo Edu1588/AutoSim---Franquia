@@ -460,16 +460,16 @@ export default function Home() {
                 <span><Check size={15} /> Modelo validado em expansão nacional</span>
               </div>
 
-              <div className="hero-actions">
+              <div className="hero-actions w-full max-w-md mx-auto md:mx-0 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3">
                 <a
-                  className="button button--primary"
+                  className="button button--primary w-full sm:w-auto justify-center text-center"
                   href="#qualificacao"
                   onClick={(e) => handleAnchorClick(e, "#qualificacao")}
                 >
                   Simular investimento <ArrowUpRightIcon />
                 </a>
                 <a
-                  className="button button--ghost"
+                  className="button button--ghost w-full sm:w-auto justify-center text-center"
                   href="#faq"
                   onClick={(e) => handleAnchorClick(e, "#faq")}
                 >
@@ -477,12 +477,12 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="hero-note flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-1.5 text-xs text-slate-300">
-                  <ShieldCheck size={15} className="text-[#f26522]" /> Candidaturas avaliadas por região e perfil
+              <div className="hero-note w-full max-w-lg mx-auto md:mx-0 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-2.5 sm:gap-3 text-center md:text-left">
+                <span className="inline-flex items-center justify-center text-center gap-1.5 text-xs text-slate-300">
+                  <ShieldCheck size={15} className="text-[#f26522] shrink-0" /> Candidaturas avaliadas por região e perfil
                 </span>
-                <span className="inline-flex items-center gap-1.5 text-xs text-[#25D366] font-semibold bg-[#25D366]/10 px-2.5 py-1 rounded-full border border-[#25D366]/30">
-                  <Clock size={13} /> Resposta garantida em até 15 minutos
+                <span className="inline-flex items-center justify-center text-center gap-1.5 text-xs text-[#25D366] font-semibold bg-[#25D366]/10 px-2.5 py-1 rounded-full border border-[#25D366]/30">
+                  <Clock size={13} className="shrink-0" /> Resposta garantida em até 15 minutos
                 </span>
               </div>
             </motion.div>
@@ -711,14 +711,15 @@ export default function Home() {
 
                       {formError && <p className="form-error" role="alert">{formError}</p>}
 
-                      <button className="button button--primary button--full cursor-pointer" type="submit">
+                      <button className="button button--primary button--full cursor-pointer justify-center text-center" type="submit">
                         Quero simular meu investimento <ArrowRight size={17} />
                       </button>
 
-                      <small className="form-privacy flex items-center justify-between text-[11px] text-slate-500 mt-3 flex-wrap gap-2">
-                        <span className="flex items-center gap-1">
-                          <ShieldCheck size={13} className="text-[#25D366]" /> Seus dados ficam protegidos (LGPD).
+                      <small className="form-privacy flex flex-col sm:flex-row items-center justify-center text-center text-[11px] text-slate-500 mt-3 gap-2 w-full">
+                        <span className="flex items-center justify-center gap-1">
+                          <ShieldCheck size={13} className="text-[#25D366] shrink-0" /> Seus dados ficam protegidos (LGPD).
                         </span>
+                        <span className="hidden sm:inline text-slate-300">•</span>
                         <Link href="/politica-de-privacidade" className="text-slate-500 hover:text-[#f26522] underline underline-offset-2">
                           Política de Privacidade
                         </Link>
@@ -805,15 +806,15 @@ export default function Home() {
             <p>Vagas prioritárias do Projeto 10 limitadas por região geográfica.</p>
 
             <a
-              className="button button--primary button--large"
+              className="button button--primary button--large w-full sm:w-auto max-w-md mx-auto justify-center text-center"
               href="#qualificacao"
               onClick={(e) => handleAnchorClick(e, "#qualificacao")}
             >
               Quero simular meu investimento <ArrowUpRightIcon />
             </a>
 
-            <span className="final-cta__urgency">
-              <span className="status-dot" /> Território em fase de expansão prioritária com candidaturas avaliadas por ordem de chegada.
+            <span className="final-cta__urgency flex items-center justify-center text-center mx-auto max-w-lg">
+              <span className="status-dot shrink-0" /> Território em fase de expansão prioritária com candidaturas avaliadas por ordem de chegada.
             </span>
           </div>
         </section>

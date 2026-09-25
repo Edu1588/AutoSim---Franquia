@@ -177,7 +177,7 @@ export default function ThankYou() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-[#090d26] hover:text-black font-extrabold text-sm px-6 py-3.5 rounded-xl shadow-xl shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5 shrink-0"
+              className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-[#090d26] hover:text-black font-extrabold text-sm px-6 py-3.5 rounded-xl shadow-xl shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5 shrink-0 w-full sm:w-auto text-center"
             >
               <WhatsAppIcon className="w-5 h-5 text-[#090d26]" fill="#090d26" />
               <span>Chamar no WhatsApp agora</span>
@@ -185,10 +185,10 @@ export default function ThankYou() {
           </div>
 
           {/* Bottom Back Button */}
-          <div className="mt-8 text-center">
+          <div className="mt-8 text-center flex flex-col items-center justify-center">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-2 text-xs text-slate-400 hover:text-white transition-colors text-center"
             >
               <span>Voltar para a página inicial</span>
               <ArrowRight size={13} />

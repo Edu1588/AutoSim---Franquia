@@ -1581,11 +1581,59 @@ fieldset legend {
     font-size: 15px;
   }
   .hero-actions {
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 12px;
+  }
+  .hero-actions .button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
   .button {
     width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-note {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 18px;
+    gap: 8px;
+  }
+  .hero-note > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .final-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .final-cta .button {
+    width: 100%;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
   }
   .hero-visual {
     max-width: 490px;
@@ -1710,8 +1758,16 @@ fieldset legend {
     margin-right: 10px;
   }
   .final-cta__urgency {
-    align-items: flex-start;
-    text-align: left;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    line-height: 1.5;
   }
   .site-footer__inner {
     align-items: flex-start;

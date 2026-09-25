@@ -180,7 +180,7 @@ function PillarTiltCard({
         <div className="pillar-card__image-wrap relative w-full aspect-[4/5] rounded-xl overflow-hidden mb-4 bg-slate-100 border border-slate-200/80 shadow-sm group-hover:shadow-md transition-shadow">
           <img
             src={image}
-            alt={title}
+            alt={`Fonte de Receita ${number} — ${title} Autosim Franchising`}
             className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105"
             loading="lazy"
           />
@@ -414,7 +414,7 @@ export default function Home() {
           {/* High-definition, razor-sharp background image */}
           <img
             src="https://res.cloudinary.com/ifuatk2z/image/upload/v1790272216/65621cff-68cd-469b-8da9-94a5ab97449d.png"
-            alt="Franquia Autosim"
+            alt="Franquia Autosim — Modelo com 4 Fontes de Receita no Mercado Automotivo"
             className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none z-0"
             loading="eager"
             decoding="async"

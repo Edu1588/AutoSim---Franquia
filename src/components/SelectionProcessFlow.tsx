@@ -118,10 +118,10 @@ export default function SelectionProcessFlow() {
         {/* DESKTOP SERPENTINE FLOW (Horizontal 2 Rows) */}
         <div className="hidden lg:block relative z-10 max-w-5xl mx-auto">
           {/* SVG Connecting Track with Animated Progress Line */}
-          <div className="relative w-full h-[360px]">
+          <div className="relative w-full h-[370px]">
             <svg
-              viewBox="0 0 1000 360"
-              className="absolute inset-0 w-full h-full overflow-visible pointer-events-none"
+              viewBox="0 0 1000 370"
+              className="absolute inset-0 w-full h-full overflow-visible pointer-events-none z-0"
               preserveAspectRatio="xMidYMid meet"
             >
               <defs>
@@ -141,26 +141,28 @@ export default function SelectionProcessFlow() {
                 </filter>
               </defs>
 
-              {/* 1. Base Static Track Line (Starting at top-left, going into Step 1, through row 1, looping down to row 2, and into Autosim logo) */}
+              {/* 1. Base Static Track Line */}
+              {/* Row 1 Y center = 110, Row 2 Y center = 250 */}
+              {/* Col centers in 1000px: Col 0: 83.3, Col 1: 250, Col 2: 416.7, Col 3: 583.3, Col 4: 750, Col 5: 916.7 */}
               <path
                 id="mainFlowPath"
-                d="M 60,30 L 60,110 L 920,110 C 975,110 975,250 920,250 L 60,250"
+                d="M 83.3,30 L 83.3,110 L 916.7,110 C 976,110 976,250 916.7,250 L 83.3,250"
                 fill="none"
                 stroke="#0d1436"
-                strokeWidth="3.5"
+                strokeWidth="4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
 
               {/* 2. Animated Progress Beam traveling continuously along the track */}
               <path
-                d="M 60,30 L 60,110 L 920,110 C 975,110 975,250 920,250 L 60,250"
+                d="M 83.3,30 L 83.3,110 L 916.7,110 C 976,110 976,250 916.7,250 L 83.3,250"
                 fill="none"
                 stroke="url(#flowPulseGradient)"
-                strokeWidth="5"
+                strokeWidth="5.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeDasharray="220 2000"
+                strokeDasharray="240 2200"
                 filter="url(#flowGlow)"
                 style={{
                   animation: "flowProgressSweep 4.5s linear infinite",
@@ -172,7 +174,7 @@ export default function SelectionProcessFlow() {
             <style>{`
               @keyframes flowProgressSweep {
                 0% {
-                  stroke-dashoffset: 2220;
+                  stroke-dashoffset: 2440;
                 }
                 100% {
                   stroke-dashoffset: 0;
@@ -180,13 +182,15 @@ export default function SelectionProcessFlow() {
               }
             `}</style>
 
-            {/* Row 1 Nodes (Steps 1 to 5) - Centers at y=110px */}
+            {/* Row 1 Nodes (Steps 1 to 5) - Vertical center perfectly pinned at y=110px */}
             <div
-              className="absolute left-0 right-0 top-0 grid grid-cols-6 gap-2 items-center"
-              style={{ height: "180px" }}
+              className="absolute left-0 right-0 grid grid-cols-6 z-10"
+              style={{ top: "110px", transform: "translateY(-50%)" }}
             >
-              {/* Col 0: Empty spacer where the incoming downward line starts */}
-              <div />
+              {/* Col 0: Empty spacer where the incoming downward line enters Row 1 */}
+              <div className="flex items-center justify-center">
+                <span className="w-3.5 h-3.5 rounded-full bg-[#0d1436] border-2 border-white shadow-sm" />
+              </div>
 
               {/* Steps 1 to 5 */}
               {STEPS.slice(0, 5).map((step) => {
@@ -195,11 +199,11 @@ export default function SelectionProcessFlow() {
                 const isOrange = step.bg === "orange";
 
                 return (
-                  <div key={step.id} className="flex flex-col items-center text-center">
+                  <div key={step.id} className="relative flex items-center justify-center">
                     {/* Step Title above the circle */}
-                    <div className="h-14 flex items-end justify-center mb-2 px-1">
+                    <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 w-32 text-center pointer-events-none">
                       <span
-                        className={`text-[12px] font-bold leading-tight whitespace-pre-line transition-colors duration-300 ${
+                        className={`text-[12px] font-bold leading-tight block transition-colors duration-300 ${
                           isActive ? "text-[#f26522] scale-105" : "text-slate-900"
                         }`}
                       >
@@ -207,15 +211,15 @@ export default function SelectionProcessFlow() {
                       </span>
                     </div>
 
-                    {/* Step Circle */}
+                    {/* Step Circle - 100% centered on track line */}
                     <div className="relative">
                       {isActive && (
-                        <span className="absolute -inset-2 rounded-full bg-[#f26522]/30 animate-ping pointer-events-none" />
+                        <span className="absolute -inset-2 rounded-full bg-[#f26522]/35 animate-ping pointer-events-none" />
                       )}
                       <div
-                        className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-md transition-all duration-300 ${
+                        className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-md transition-all duration-300 border-2 border-white ${
                           isActive
-                            ? "scale-110 ring-4 ring-[#f26522]/40 shadow-lg shadow-orange-500/30"
+                            ? "scale-110 ring-4 ring-[#f26522]/40 shadow-lg shadow-orange-500/35"
                             : ""
                         } ${
                           isOrange
@@ -231,15 +235,27 @@ export default function SelectionProcessFlow() {
               })}
             </div>
 
-            {/* Row 2 Nodes (Autosim Logo in Col 0, then Steps 10 down to 6) - Centers at y=250px */}
+            {/* Row 2 Nodes (Autosim Logo in Col 0, then Steps 10 down to 6) - Vertical center perfectly pinned at y=250px */}
             <div
-              className="absolute left-0 right-0 bottom-0 grid grid-cols-6 gap-2 items-start"
-              style={{ height: "170px" }}
+              className="absolute left-0 right-0 grid grid-cols-6 z-10"
+              style={{ top: "250px", transform: "translateY(-50%)" }}
             >
               {/* Col 0: AUTOSIM Brand Logo receiving the final line */}
-              <div className="flex flex-col items-center justify-start pt-1">
-                <div className="w-14 h-14 flex items-center justify-center">
+              <div className="relative flex items-center justify-center">
+                <div
+                  className={`relative w-[156px] h-14 md:h-16 rounded-2xl bg-white border-2 shadow-xl flex items-center justify-center px-4 transition-all duration-300 ${
+                    activeStep === 10
+                      ? "border-[#f26522] ring-4 ring-[#f26522]/30 shadow-orange-500/25 scale-105"
+                      : "border-slate-200/90 shadow-slate-900/10"
+                  }`}
+                >
                   <AutosimLogo height={24} light={false} />
+                </div>
+                <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 text-center pointer-events-none whitespace-nowrap">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#f26522] bg-orange-50 px-3 py-1 rounded-full border border-orange-200 shadow-sm flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#f26522] animate-pulse" />
+                    Unidade Ativa
+                  </span>
                 </div>
               </div>
 
@@ -254,16 +270,16 @@ export default function SelectionProcessFlow() {
                 const isOrange = step.bg === "orange";
 
                 return (
-                  <div key={step.id} className="flex flex-col items-center text-center">
-                    {/* Step Circle */}
-                    <div className="relative mb-2">
+                  <div key={step.id} className="relative flex items-center justify-center">
+                    {/* Step Circle - 100% centered on track line */}
+                    <div className="relative">
                       {isActive && (
-                        <span className="absolute -inset-2 rounded-full bg-[#f26522]/30 animate-ping pointer-events-none" />
+                        <span className="absolute -inset-2 rounded-full bg-[#f26522]/35 animate-ping pointer-events-none" />
                       )}
                       <div
-                        className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-md transition-all duration-300 ${
+                        className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-md transition-all duration-300 border-2 border-white ${
                           isActive
-                            ? "scale-110 ring-4 ring-[#f26522]/40 shadow-lg shadow-orange-500/30"
+                            ? "scale-110 ring-4 ring-[#f26522]/40 shadow-lg shadow-orange-500/35"
                             : ""
                         } ${
                           isOrange
@@ -276,9 +292,9 @@ export default function SelectionProcessFlow() {
                     </div>
 
                     {/* Step Title below the circle */}
-                    <div className="flex items-start justify-center px-1">
+                    <div className="absolute top-full mt-3 left-1/2 -translate-x-1/2 w-36 text-center pointer-events-none">
                       <span
-                        className={`text-[12px] font-bold leading-tight whitespace-pre-line transition-colors duration-300 ${
+                        className={`text-[12px] font-bold leading-tight block transition-colors duration-300 ${
                           isActive ? "text-[#f26522] scale-105" : "text-slate-900"
                         }`}
                       >
@@ -292,15 +308,15 @@ export default function SelectionProcessFlow() {
           </div>
         </div>
 
-        {/* MOBILE & TABLET RESPONSIVE FLOW (Vertical with animated line) */}
+        {/* MOBILE & TABLET RESPONSIVE FLOW (Vertical with centered line) */}
         <div className="lg:hidden relative">
-          <div className="relative pl-6 space-y-5 before:absolute before:left-[35px] before:top-4 before:bottom-4 before:w-1 before:bg-[#0d1436]">
+          <div className="relative pl-3 space-y-4 before:absolute before:left-[35px] before:top-6 before:bottom-6 before:w-1 before:bg-[#0d1436] before:-translate-x-1/2">
             {/* Animated progress overlay line on mobile */}
             <div
-              className="absolute left-[35px] top-4 w-1 bg-[#f26522] transition-all duration-700 pointer-events-none"
+              className="absolute left-[35px] top-6 w-1 bg-[#f26522] transition-all duration-700 pointer-events-none -translate-x-1/2"
               style={{
                 height: `${(activeStep / 10) * 92}%`,
-                boxShadow: "0 0 8px #f26522",
+                boxShadow: "0 0 10px #f26522",
               }}
             />
 
@@ -312,16 +328,16 @@ export default function SelectionProcessFlow() {
               return (
                 <div
                   key={step.id}
-                  className={`relative flex items-center gap-4 p-3 rounded-2xl transition-all ${
-                    isActive ? "bg-orange-50/60 ring-1 ring-[#f26522]/30" : ""
+                  className={`relative flex items-center gap-4 p-2.5 rounded-2xl transition-all ${
+                    isActive ? "bg-orange-50/70 ring-1 ring-[#f26522]/30 shadow-sm" : ""
                   }`}
                 >
-                  <div className="relative z-10 flex-shrink-0">
+                  <div className="relative z-10 flex-shrink-0 w-12 h-12 flex items-center justify-center">
                     {isActive && (
                       <span className="absolute -inset-1.5 rounded-full bg-[#f26522]/30 animate-ping pointer-events-none" />
                     )}
                     <div
-                      className={`w-12 h-12 rounded-full flex items-center justify-center text-white shadow-md ${
+                      className={`w-12 h-12 rounded-full flex items-center justify-center text-white shadow-md border-2 border-white ${
                         isActive ? "scale-105" : ""
                       } ${
                         isOrange
@@ -350,12 +366,12 @@ export default function SelectionProcessFlow() {
             })}
 
             {/* Mobile final Autosim Logo point */}
-            <div className="relative flex items-center gap-4 p-3 pt-4">
-              <div className="relative z-10 w-12 h-12 rounded-full bg-white border-2 border-[#0d1436] flex items-center justify-center flex-shrink-0">
+            <div className="relative flex items-center gap-4 p-2.5 pt-4">
+              <div className="relative z-10 w-12 h-12 rounded-full bg-white border-2 border-[#0d1436] flex items-center justify-center flex-shrink-0 shadow-sm">
                 <span className="w-3 h-3 rounded-full bg-[#f26522] animate-pulse" />
               </div>
-              <div>
-                <AutosimLogo height={22} light={false} />
+              <div className="bg-white px-5 py-3 rounded-2xl border-2 border-slate-200/90 shadow-md flex items-center justify-center">
+                <AutosimLogo height={24} light={false} />
               </div>
             </div>
           </div>

@@ -1004,6 +1004,10 @@ h2 em {
   box-shadow: 0 12px 28px rgba(16, 23, 63, .06);
 }
 
+.stat-card--overflow-visible {
+  overflow: visible !important;
+}
+
 .stat-card--featured {
   background: var(--navy);
   border-color: rgba(255, 255, 255, .1);

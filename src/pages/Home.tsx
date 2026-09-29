@@ -53,7 +53,7 @@ const pillars: PillarItem[] = [
     title: "Autosim Express",
     description: "Compra rápida de veículos com receita imediata no balcão.",
     accent: "orange",
-    image: "https://res.cloudinary.com/ifuatk2z/image/upload/v1790279816/autosim1.png",
+    image: "https://res.cloudinary.com/ifuatk2z/image/upload/v1790692138/autosim1111.png",
   },
   {
     number: "02",
@@ -77,7 +77,7 @@ const pillars: PillarItem[] = [
     title: "Autosim Loja",
     description: "Mesa de negócios entre lojistas para repasse e reposição de estoque.",
     accent: "blue",
-    image: "https://res.cloudinary.com/ifuatk2z/image/upload/v1790279816/autosim4.png",
+    image: "https://res.cloudinary.com/ifuatk2z/image/upload/v1790691763/auto3322.png",
   },
 ];
 
@@ -413,7 +413,7 @@ export default function Home() {
         <section className="hero-section relative overflow-hidden">
           {/* High-definition, razor-sharp background image */}
           <img
-            src="https://res.cloudinary.com/ifuatk2z/image/upload/v1790272216/65621cff-68cd-469b-8da9-94a5ab97449d.png"
+            src="https://res.cloudinary.com/ifuatk2z/image/upload/v1790691080/autosimherocomp.png"
             alt="Franquia Autosim — Modelo com 4 Fontes de Receita no Mercado Automotivo"
             className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none z-0"
             loading="eager"
@@ -609,9 +609,17 @@ export default function Home() {
                 </span>
                 <span className="stat-card__label">bancos parceiros de financiamento</span>
               </div>
-              <div className="stat-card">
-                <span className="stat-card__value stat-card__value--text">BR</span>
-                <span className="stat-card__label">projeto com presença nacional</span>
+              <div className="stat-card stat-card--overflow-visible !overflow-visible group relative">
+                {/* Floating Map image centered and positioned gracefully */}
+                <div className="relative -top-2 sm:-top-3 md:-top-4 my-auto flex items-center justify-center w-full z-10">
+                  <img
+                    src="https://res.cloudinary.com/ifuatk2z/image/upload/v1790692718/autosimMap.png"
+                    alt="Mapa de Expansão Nacional da Franquia Autosim"
+                    className="w-28 sm:w-32 md:w-36 h-auto object-contain drop-shadow-xl group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-300 pointer-events-none select-none"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="stat-card__label relative z-10">projeto com presença nacional</span>
               </div>
             </div>
           </div>

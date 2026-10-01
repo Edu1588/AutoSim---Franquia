@@ -71,10 +71,25 @@ button, a {
 
 /* Header */
 .site-header {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto;
-  z-index: 20;
+  z-index: 50;
   color: white;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              -webkit-backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header--scrolled {
+  background: rgba(7, 11, 30, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.38);
 }
 
 .site-header__inner {
@@ -82,6 +97,11 @@ button, a {
   align-items: center;
   justify-content: space-between;
   min-height: 88px;
+  transition: min-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header--scrolled .site-header__inner {
+  min-height: 72px;
 }
 
 .brand-link {

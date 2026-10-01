@@ -223,12 +223,23 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
   const [showLoader, setShowLoader] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
 
   const lenisRef = useRef<Lenis | null>(null);
   const statsSectionRef = useRef<HTMLDivElement>(null);
   const stat10Ref = useRef<HTMLSpanElement>(null);
   const stat100Ref = useRef<HTMLSpanElement>(null);
   const stat12Ref = useRef<HTMLSpanElement>(null);
+
+  // Monitor scroll for fixed header blur background
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Initialize Lenis smooth scroll
   useEffect(() => {
@@ -354,8 +365,8 @@ export default function Home() {
         <SpeedometerLoader onComplete={() => setShowLoader(false)} />
       )}
 
-      {/* HEADER WITH OFFICIAL AUTOSIM LOGO */}
-      <header className="site-header">
+      {/* FIXED HEADER WITH OFFICIAL AUTOSIM LOGO & BLUR EFFECT ON SCROLL */}
+      <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
         <div className="container site-header__inner">
           <a
             className="brand-link flex items-center"
@@ -386,13 +397,11 @@ export default function Home() {
             </a>
             <a
               className="nav-cta"
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={`Fale conosco pelo WhatsApp ${WHATSAPP_FORMATTED} - Quero saber mais`}
+              href="#qualificacao"
+              onClick={(e) => handleAnchorClick(e, "#qualificacao")}
+              title="Quero ser Franqueado — Simular investimento"
             >
-              <WhatsAppIcon className="w-4 h-4 text-white shrink-0" fill="#ffffff" />
-              <span>Quero saber mais</span>
+              <span>Quero ser Franqueado</span>
             </a>
           </nav>
 
@@ -938,9 +947,9 @@ export default function Home() {
       <MobileStickyCTA
         onScrollToForm={() => {
           if (lenisRef.current) {
-            lenisRef.current.scrollTo("#investimento", { offset: -30, duration: 1.2 });
+            lenisRef.current.scrollTo("#qualificacao", { offset: -80, duration: 1.2 });
           } else {
-            const el = document.getElementById("investimento");
+            const el = document.getElementById("qualificacao");
             el?.scrollIntoView({ behavior: "smooth" });
           }
         }}

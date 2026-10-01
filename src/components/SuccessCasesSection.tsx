@@ -13,7 +13,6 @@ import {
   Building2,
   Sparkles,
 } from "lucide-react";
-import { WHATSAPP_LINK } from "./WhatsAppFloatingButton";
 
 interface CaseItem {
   id: string;
@@ -284,12 +283,10 @@ export default function SuccessCasesSection() {
               <ArrowRight size={16} />
             </a>
             <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#qualificacao"
               className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 py-3.5 rounded-xl font-semibold text-sm transition-all border border-white/15 w-full sm:w-auto text-center"
             >
-              <span>Falar no WhatsApp</span>
+              <span>Simular investimento</span>
             </a>
           </div>
         </div>
